@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<RegExSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileName>C:\Users\aarond\OneDrive\Documents\Visual Studio 2017\Projects\AusGovLabellingAgent\RegEx.hdg</FileName>
+  <RegEx>
+    <Name>Regex_SubjectLabel</Name>
+    <Pattern>\s*\[(?:SEC=(?&lt;securityClassification&gt;(?:UNOFFICIAL|UNCLASSIFIED|PROTECTED|CONFIDENTIAL|SECRET|TOP-SECRET))|DLM=(?&lt;dlmValue&gt;(?:For-Official-Use-Only|Sensitive:Legal|Sensitive:Personal|Sensitive:Cabinet|Sensitive))|SEC=(?&lt;securityClassification&gt;(?:UNOFFICIAL|UNCLASSIFIED|PROTECTED|CONFIDENTIAL|SECRET|TOP-SECRET)),\s*DLM=(?&lt;dlmValue&gt;(?:For-Official-Use-Only|Sensitive:Legal|Sensitive:Personal|Sensitive:Cabinet|Sensitive)))]\s*</Pattern>
+    <Input>This is an example subject line [SEC=UNCLASSIFIED, DLM=For-Official-Use-Only] </Input>
+  </RegEx>
+  <RegEx>
+    <Name>Regex_SubjectHashTagAtEnd</Name>
+    <Pattern>\s*#(?:UF|FOUO|UC-SEN|UC-LEG|UC-PER|UC|P-SEN|P-LEG|P-PER|P-CAB|P|C-SEN|C-LEG|C-CER|C-CAB|C|S-SEN|S-LEG|S-CER|S-CAB|S|TS-SEN|TS-LEG|TS-CER|TS-CAB|TS)\s*\Z</Pattern>
+    <Input>This is an example subject line        #P-CAB        </Input>
+  </RegEx>
+  <RegEx>
+    <Name>RegEx_HeaderLabel</Name>
+    <Pattern>\s*VER=2012\.3,\s*NS=gov\.au,\s*(SEC=(?&lt;securityClassification&gt;(?:UNOFFICIAL|UNCLASSIFIED|PROTECTED|CONFIDENTIAL|SECRET|TOP-SECRET)))?(,\s*)?(DLM=(?&lt;dlmValue&gt;(?:For-Official-Use-Only|Sensitive:Legal|Sensitive:Personal|Sensitive:Cabinet|Sensitive)))?(,\s*)?(ORIGIN=(?&lt;origin&gt;.*))?\s*</Pattern>
+    <Input> VER=2012.3,  NS=gov.au,  SEC=UNCLASSIFIED,  DLM=Sensitive,   ORIGIN=neville.jones@ato.example.org    </Input>
+  </RegEx>
+</RegExSet>

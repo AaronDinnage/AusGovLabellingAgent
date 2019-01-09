@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AutoReload>true</AutoReload>
+  <HeaderName>X-Protective-Marking</HeaderName>
+  <MsipHeaderName>msip_labels</MsipHeaderName>
+  <MsipOwnerTag>%%Owner%%</MsipOwnerTag>
+  <MsipSetDateTag>%%SetDate%%</MsipSetDateTag>
+  <MsipMethodTag>%%Method%%</MsipMethodTag>
+  <MsipSetDateFormat>yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffff'Z'</MsipSetDateFormat>
+  <MsipRegexOwner>.*(?:_Owner=(?&lt;value&gt;[^;]+);).*</MsipRegexOwner>
+  <MsipRegexSetDate>.*(?:_SetDate=(?&lt;value&gt;[^;]+);).*</MsipRegexSetDate>
+  <MsipRegexMethod>.*(?:_Method=(?&lt;value&gt;[^;]+);).*</MsipRegexMethod>
+  <MsipBypassLabel>Bypass</MsipBypassLabel>
+  <MsipMethodDefault>Default</MsipMethodDefault>
+  <MsipMethodManual>Manual</MsipMethodManual>
+  <MsipMethodAutomatic>Automatic</MsipMethodAutomatic>
+  <MsipMethodMandatory>Mandatory</MsipMethodMandatory>
+  <NdrDisplayName>Mail Server</NdrDisplayName>
+  <NdrEmailAddress>reject@contoso.com</NdrEmailAddress>
+  <NdrSubject>Message Rejected - Missing Valid Classification [SEC=OFFICIAL]</NdrSubject>
+  <NdrIncludeAttachment>true</NdrIncludeAttachment>
+  <SubjectRegex>\s*\[(?:SEC=(?&lt;sec&gt;[^,\]]+)|DLM=(?&lt;dlm&gt;[^,\]]+)|SEC=(?&lt;sec&gt;[^,\]]+),\s*DLM=(?&lt;dlm&gt;[^,\]]+))(?:,\s*CAVEAT=(?&lt;caveat&gt;[^,\]]+))*(?:,\s*EXPIRES=(?&lt;expires&gt;[^,\]]+),\s*DOWNTO=(?&lt;downTo&gt;[^,\]]+))?(?:,\s*ACCESS=(?&lt;access&gt;[^,\]]+))*]\s*</SubjectRegex>
+  <HeaderRegex>\s*(?:VER=(?&lt;ver&gt;[^,]+))(?:,\s*NS=(?&lt;ns&gt;[^,]+))(?:,\s*SEC=(?&lt;sec&gt;[^,]+))?(?:,\s*DLM=(?&lt;dlm&gt;[^,]+))?(?:,\s*CAVEAT=(?&lt;caveat&gt;[^,]+))*(?:,\s*EXPIRES=(?&lt;expires&gt;[^,]+),\s*DOWNTO=(?&lt;downTo&gt;[^,]+))?(?:,\s*ACCESS=(?&lt;access&gt;[^,]+))*(?:,\s*NOTE=(?&lt;note&gt;[^,]+))?(?:,\s*ORIGIN=(?&lt;origin&gt;[^,]+))?\s*</HeaderRegex>
+  <RegexOptions>IgnoreCase CultureInvariant</RegexOptions>
+  <EnableShortcuts>true</EnableShortcuts>
+  <DefaultOutboundLabel>OFFICIAL</DefaultOutboundLabel>
+  <DefaultInboundLabel>Bypass</DefaultInboundLabel>
+  <BounceUnlabelledEmails>false</BounceUnlabelledEmails>
+  <Classifications>
+    <Classification Key="Bypass" Shortcut="#Bypass">
+      <MsipLabel> MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Enabled=True;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Owner=%%Owner%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SetDate=%%SetDate%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Name=Bypass;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Application=Microsoft Azure
+ Information Protection;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Extended_MSFT_Method=%%Method%%;
+ Sensitivity=Bypass</MsipLabel>
+    </Classification>
+    <Classification Key="UNOFFICIAL" Shortcut="#UF">
+      <Marking Version="2018.1" Namespace="gov.au" SecurityClassification="UNOFFICIAL" />
+      <MsipLabel> MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Enabled=True;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Owner=%%Owner%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SetDate=%%SetDate%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Name=UNOFFICIAL;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Application=Microsoft Azure
+ Information Protection;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Extended_MSFT_Method=%%Method%%;
+ Sensitivity=UNOFFICIAL</MsipLabel>
+    </Classification>
+    <Classification Key="OFFICIAL" Shortcut="#OF">
+      <Marking Version="2018.1" Namespace="gov.au" SecurityClassification="OFFICIAL" />
+      <MsipLabel> MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Enabled=True;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Owner=%%Owner%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SetDate=%%SetDate%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Name=OFFICIAL;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Application=Microsoft Azure
+ Information Protection;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Extended_MSFT_Method=%%Method%%;
+ Sensitivity=OFFICIAL</MsipLabel>
+    </Classification>
+    <Classification Key="OFFICIAL Sensitive" Shortcut="#OS">
+      <Marking Version="2018.1" Namespace="gov.au" SecurityClassification="OFFICIAL:Sensitive" />
+      <MsipLabel> MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Enabled=True;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Owner=%%Owner%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SetDate=%%SetDate%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Name=OFFICIAL Sensitive;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Application=Microsoft Azure
+ Information Protection;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Extended_MSFT_Method=%%Method%%;
+ Sensitivity=OFFICIAL Sensitive</MsipLabel>
+    </Classification>
+    <Classification Key="PROTECTED" Shortcut="#P">
+      <Marking Version="2018.1" Namespace="gov.au" SecurityClassification="PROTECTED" />
+      <MsipLabel> MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Enabled=True;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Owner=%%Owner%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SetDate=%%SetDate%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Name=PROTECTED;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Application=Microsoft Azure
+ Information Protection;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Extended_MSFT_Method=%%Method%%;
+ Sensitivity=PROTECTED</MsipLabel>
+    </Classification>
+    <Classification Key="PROTECTED Cabinet" Shortcut="#PC">
+      <Marking Version="2018.1" Namespace="gov.au" SecurityClassification="PROTECTED">
+        <Caveats>RI:CABINET</Caveats>
+      </Marking>
+      <MsipLabel> MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Enabled=True;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Owner=%%Owner%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_SetDate=%%SetDate%%;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Name=PROTECTED;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Application=Microsoft Azure
+ Information Protection;
+ MSIP_Label_074e257c-5848-4582-9a6f-34a182080e71_Extended_MSFT_Method=%%Method%%;
+ MSIP_Label_fec751d2-ff79-4176-b06f-8a50d675b290_Enabled=True;
+ MSIP_Label_fec751d2-ff79-4176-b06f-8a50d675b290_SiteId=72f988bf-86f1-41af-91ab-2d7cd011db47;
+ MSIP_Label_fec751d2-ff79-4176-b06f-8a50d675b290_Owner=%%Owner%%;
+ MSIP_Label_fec751d2-ff79-4176-b06f-8a50d675b290_SetDate=%%SetDate%%;
+ MSIP_Label_fec751d2-ff79-4176-b06f-8a50d675b290_Name=Cabinet;
+ MSIP_Label_fec751d2-ff79-4176-b06f-8a50d675b290_Application=Microsoft Azure
+ Information Protection;
+ MSIP_Label_fec751d2-ff79-4176-b06f-8a50d675b290_Parent=074e257c-5848-4582-9a6f-34a182080e71;
+ MSIP_Label_fec751d2-ff79-4176-b06f-8a50d675b290_Extended_MSFT_Method=%%Method%%;
+ Sensitivity=PROTECTED Cabinet</MsipLabel>
+    </Classification>
+  </Classifications>
+  <MandatoryClassifications>
+    <StringPair Key="mfd@contoso.com" Value="PROTECTED" />
+    <StringPair Key="lob@contoso.com" Value="OFFICIAL Sensitive" />
+  </MandatoryClassifications>
+</Config>

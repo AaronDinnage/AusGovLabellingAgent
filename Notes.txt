@@ -1,0 +1,51 @@
+[(SEC=<securityClassification>)(, CAVEAT=<caveatType>:<caveatValue>)*(, EXPIRES=(<genDate>|<event>), DOWNTO=(<securityClassification>)?(,ACCESS=<InformationManagementMarker>)*]
+\s*\[(?:SEC=(?<sec>[^,\]]+)|DLM=(?<dlm>[^,\]]+)|SEC=(?<sec>[^,\]]+),\s*DLM=(?<dlm>[^,\]]+))(?:,\s*CAVEAT=(?<caveat>[^,\]]+))*(?:,\s*EXPIRES=(?<expires>[^,\]]+),\s*DOWNTO=(?<downTo>[^,\]]+))?(?:,\s*ACCESS=(?<access>[^,\]]+))*]\s*
+
+E.g.
+[SEC=PROTECTED, CAVEAT=XX:YY, EXPIRES=2019-01-01, DOWNTO=OFFICIAL, ACCESS=Legal-Privilege]
+
+
+X-Protective-Marking: VER=<ver>, NS=gov.au, (SEC=<securityClassification>)(, CAVEAT=<caveatType>:<caveatValue>)*(, EXPIRES=(<genDate>|<event>), DOWNTO=(<securityClassification>)?(, ACCESS=< InformationManagementMarker>)*(, NOTE=<comment>)?, ORIGIN=<authorEmail>
+\s*(?:VER=(?<ver>[^,]+))(?:,\s*NS=(?<ns>[^,]+))(?:,\s*SEC=(?<sec>[^,]+))?(?:,\s*DLM=(?<dlm>[^,]+))?(?:,\s*CAVEAT=(?<caveat>[^,]+))*(?:,\s*EXPIRES=(?<expires>[^,]+),\s*DOWNTO=(?<downTo>[^,]+))?(?:,\s*ACCESS=(?<access>[^,]+))*(?:,\s*NOTE=(?<note>[^,]+))?(?:,\s*ORIGIN=(?<origin>[^,]+))?\s*
+
+E.g.
+X-Protective-Marking: VER=2018.1, NS=gov.au, SEC=PROTECTED, CAVEAT=XX:YY, EXPIRES=2019-01-01, DOWNTO=OFFICIAL, ACCESS=Legal-Privilege, NOTE=Blah Blah Blah, ORIGIN=person@agency.gov.au
+
+
+Security Classification (1):
+	• UNOFFICIAL 
+	• OFFICIAL 
+	• OFFICIAL:Sensitive 
+	• PROTECTED
+	• SECRET
+	• TOP-SECRET
+
+Information Management Marker (0...*):
+	• Personal-Privacy
+	• Legal-Privilege
+	• Legislative-Secrecy 
+Applies to OFFICIAL or higher.
+
+Caveat (0...*):
+Format: Type:Value
+Where Type is:
+	• C, a Codeword caveat
+	• FG, a ForeignGovernment caveat
+	• SH, a SpecialHandling caveat
+	• RI, a ReleasabilityIndicator caveat.
+Type could be considered to be either 1 or 2 characters, or just treat all as text?
+
+And Value is:
+There are specific value formats, or free text, so treat as text.
+
+Expires (0...1):
+Either a date or an event (free text).
+Treat as text?
+
+DownTo is a Security Classification (0...1, requires Expires).
+
+NOTE (0...1):
+Format: Text
+
+ORIGIN (1):
+Format: Email address.

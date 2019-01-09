@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AusGovLabellingAgent", "AusGovLabellingAgent\AusGovLabellingAgent.csproj", "{49C74618-DD4F-4AB6-BA5C-EBA0254B6372}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{601C7EC8-A219-4CB7-9646-243B52C47BE3}"
+	ProjectSection(SolutionItems) = preProject
+		References\Microsoft.Exchange.Data.Common.dll = References\Microsoft.Exchange.Data.Common.dll
+		References\Microsoft.Exchange.Data.Transport.dll = References\Microsoft.Exchange.Data.Transport.dll
+		Notes.txt = Notes.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{CC046C8C-CF84-4101-A2A0-A23B4DA090FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49C74618-DD4F-4AB6-BA5C-EBA0254B6372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C74618-DD4F-4AB6-BA5C-EBA0254B6372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C74618-DD4F-4AB6-BA5C-EBA0254B6372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C74618-DD4F-4AB6-BA5C-EBA0254B6372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC046C8C-CF84-4101-A2A0-A23B4DA090FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC046C8C-CF84-4101-A2A0-A23B4DA090FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC046C8C-CF84-4101-A2A0-A23B4DA090FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC046C8C-CF84-4101-A2A0-A23B4DA090FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

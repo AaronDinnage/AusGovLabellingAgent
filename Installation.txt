@@ -1,0 +1,22 @@
+Installation instructions:
+
+Copy dll, pdb, and xml files to a location on the server ("C:\TransportAgents\" in the install script below)
+Modify the configuration xml to suit
+
+Run the following PowerShell commands to install and enable the transport agent:
+Install-TransportAgent -Name "AusGovLabellingAgent" -TransportAgentFactory "AusGovLabellingAgent.LabellingAgentFactory" -AssemblyPath "C:\TransportAgents\AusGovLabellingAgent.dll"
+
+Enable-TransportAgent -Name "AusGovLabellingAgent"
+
+Recommend viewing the trace output with SysInternals Dbgview.exe (Kernel logging as admin)
+or put the following trace recording into the edgetransport.exe.config:
+<configuration>
+  <system.diagnostics>
+    <trace autoflush="false" indentsize="4">
+      <listeners>
+        <add name="myListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="traces.log" />
+        <remove name="Default" />
+      </listeners>
+    </trace>
+  </system.diagnostics>
+</configuration>
